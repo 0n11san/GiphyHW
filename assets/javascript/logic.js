@@ -30,7 +30,10 @@ $("#addGameItem").on("click", function(event) {
 
   //  Ensures the user's button has at least 10 GIFs available from GIPHY API.
   // If there aren't 10, an error message will be shown and no button will be created.
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameInput + "&limit=2&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameInput + "&limit=1&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
+
+  //couldn't seem to get different gifs for each button press; tried "offset" and it WORKED! after I remembered I had two different sections w/ API calls! Now, I have varying reuslts when the same button is pressed more than once! (cool)
+  // GIPHY documentation reference: https://developers.giphy.com/docs/
 
   $.ajax({
     url: queryURL,
@@ -59,10 +62,16 @@ function display() {
   // Clears out error message (if one pops up)
   $("#entry").empty();
 
+  // defines and then executes; clears old gifs when new gifs are called after button press <-----this is now working; was referencing the wrong section at first (i.e. "theMagic" id instead of the correct "ratings" id)
+  function clearGifs() {
+    $("#ratings").empty();
+  }
+  clearGifs();
+
   var gameTerm = $(this).attr("game-name");
 
   // The GIPHY query.  This limits to 10 results
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameTerm + "&limit=10&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameTerm + "&limit=10&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
 
   $.ajax({
     url: queryURL,

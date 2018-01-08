@@ -23,6 +23,10 @@ h4 {
   color: #479C48;
 }
 
+* {
+  font-family: 'Press Start 2P';
+}
+
 .centerText {
   text-align: center;
 }
@@ -49,7 +53,12 @@ h4 {
 }
 
 #ratings {
-  color: #479C48;
+  /* color: #479C48; */
+  color: #B40610;
+
+  /* https://css-tricks.com/adding-stroke-to-web-text/ */
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: white;
 }
 
 #ratingDiv {

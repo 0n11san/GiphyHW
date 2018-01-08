@@ -1,4 +1,6 @@
-// This is the initial array.
+// ref example(s) from class: GWU_Data_Bootcamp/GWAR201710FSF5-Class-Repository-FSF/06-ajax/01-Activities/14-DynamicElements
+
+// This is the initial videogame title array.
 var videoGames = ["FFVII", "Chrono Trigger", "Smash Bros", "Katamari", "God of War", "Mario", "Street Fighter", "Metroid", "Earthbound", "Zelda", "Sonic the Hedgehog", "Pikmin", "Pac-Man", "Okami", "Shadow of the Colossus", "Kingdom Hearts", "Final Fantasy VI", "SNES"];
 var gameGIF = "";
 

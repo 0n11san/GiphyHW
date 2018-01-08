@@ -1,9 +1,18 @@
 body {
-  background-color: teal; /*just in case main img doesn't load*/
+  background-color: teal;
+  /*just in case main img doesn't load*/
 
-  /* background-image: url("https://68.media.tumblr.com/3e7d5999ae8b52e7d8c9e271f726c4f8/tumblr_n0q5s6nGIh1sgazlpo1_1280.gif"); */
+  /* background-image: url("../images/city_lights.gif"); */
 
-  background-image: url("https://media.giphy.com/media/DOgwGUPKuRYZi/giphy.gif");
+  /* background-image: url("../images/lowkeyblinky.gif"); */
+
+  /* background-image: url("../images/motorcycle.gif");
+  background-size: cover;  */
+
+  /* background-image: url("../images/80sgrid.gif");
+  background-size: cover; */
+
+  /* Note: downloaded and linked to local copy of images as opposed to web-hosted versions. Think my site may have been blocked from referencing their image too much */
 }
 
 h1 {

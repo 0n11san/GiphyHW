@@ -1,0 +1,63 @@
+</div>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Giphy HW</title>
+
+	<!-- spec: http://gw.bootcampcontent.com/GW-Coding-Boot-Camp/GWAR201710FSF5-Class-Repository-FSF/blob/master/06-ajax/02-Homework/Instructions/homework.md -->
+
+	<!-- Objective: create page which can dynamically create new buttons which, when clicked, show some  relating GIFs from the GIPHY website. Additinoally, pick a theme and have a few pre-made buttons already on page. When GIFs appear, user should be able to click them to start and stop their respective animations. -->
+
+	<!-- Bootstrap-required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<!-- Link to own CSS -->
+	<link type='text/css' rel='stylesheet' href='assets/css/style.css' />
+
+	<!-- Custom Font Imported from Google -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans" />
+
+</head>
+
+<body>
+
+	<div id='container'>
+		<div id='visibleTitle'>
+			<h1 class="centerText">GIPHY API</h1>
+		</div>
+
+			<h4 class="centerText">Click on a button to display 10 GIFs. Add your own button by submitting via the search box.</p><p>Additionally, you can click each GIF to de-/activate any animation it may have!</h4>
+
+			<!-- This will be where the buttons are added and displayed. -->
+			<div id="buttonItems"></div>
+
+			<!-- This is the form to add a space-themed button to the array. -->
+			<form>
+				<div class="row">
+					<div class="col-md-3">
+						<input type="text" id="space-input" class="form-control" placeholder="Add something spacey...">
+					</div>
+					<input id="addSpaceThing" type="submit" class="btn btn-success" value="Find My GIFs!">
+
+					<span id="entry" style="color: white; background: red"></span>
+				</div>
+			</form>
+
+			<!-- This is where the GIFs will actually be shown the user, after they've clicked the corresponding button. -->
+			<div id="ratings"></div>
+
+			<!-- Bootstrap JS, Popper, jQuery -->
+			<script type='text/javascript' src='assets/javascript/logic.js'></script>
+
+			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+		</body>
+	</div>
+</html>

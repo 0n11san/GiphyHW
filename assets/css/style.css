@@ -1,0 +1,51 @@
+body {
+  background-color: teal; /*just in case main img doesn't load*/
+
+  /* background-image: url("https://68.media.tumblr.com/3e7d5999ae8b52e7d8c9e271f726c4f8/tumblr_n0q5s6nGIh1sgazlpo1_1280.gif"); */
+
+  background-image: url("https://media.giphy.com/media/DOgwGUPKuRYZi/giphy.gif");
+}
+
+h1 {
+  color: white;
+}
+
+h4 {
+  color: #479C48;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.btn {
+  margin: 5px auto 5px auto;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.special {
+  margin: 5px auto 5px auto;
+}
+
+#container {
+  padding: 20px;
+}
+
+#entry {
+  color: white;
+  background: red;
+}
+
+#ratings {
+  color: #479C48;
+}
+
+#ratingDiv {
+  text-align: "center";
+  font-size: "20px";
+  width: "200px";
+  display: "block";
+}

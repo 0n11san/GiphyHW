@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Spec: http://gw.bootcampcontent.com/GW-Coding-Boot-Camp/GWAR201710FSF5-Class-Repository-FSF/blob/master/06-ajax/02-Homework/Instructions/homework.md -->
+
+  <!-- Objective: create page which can dynamically create new buttons which, when clicked, show some  relating GIFs from the GIPHY website. Additinoally, pick a theme and have a few pre-made buttons already on page. When GIFs appear, user should be able to click them to start and stop their respective animations. -->
+
+  <meta charset="UTF-8">
+  <title>GIPHY HW</title>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- This links to the jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+  <!-- Link to own CSS -->
+  <link type='text/css' rel='stylesheet' href='assets/css/style.css' />
+
+  <!-- Custom Font Imported from Google -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans" />
+
+</head>
+
+<body>
+  <div id='container'>
+
+    <div id='visibleTitle'>
+			<h1 class="centerText">GAME GIPHYS!</h1>
+		</div>
+
+    <h4 class="centerText">Try clicking on a button, to display some related GIFs. Add your own button by submitting via the search box.</p><p>Additionally, you can click each GIF to de-/activate its animation!</h4>
+
+    <!-- This will be where the buttons are added and displayed. -->
+    <div id="buttonItems" class="centerText"></div>
+
+    <!-- This is the form to add a game-themed button to the array. -->
+    <form id="form">
+      <div class="row centerText special">
+        <div class="col-md-3 special">
+          <input type="text" id="game-input" class="form-control" placeholder="Insert Cartridge...">
+        </div>
+        <input id="addGameItem" type="submit" class="btn btn-success" value="Load Game!">
+        <!-- If there are any error messages, they should appear here -->
+        <span id="entry"></span>
+      </div>
+    </form>
+
+    <!-- This is where the GIFs will actually be shown to the user, after they've clicked the corresponding button. -->
+    <div id="ratings"></div>
+
+    <script type='text/javascript' src='assets/javascript/logic.js'></script>
+
+
+  </div>
+</body>
+
+</html>

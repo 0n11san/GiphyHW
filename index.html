@@ -29,8 +29,8 @@
   <div id='container'>
 
     <div id='visibleTitle'>
-			<h1 class="centerText">GAME GIPHYS!</h1>
-		</div>
+      <h1 class="centerText">GAME GIPHYS!</h1>
+    </div>
 
     <h4 class="centerText">Try clicking on a button, to display some related GIFs. Add your own button by submitting via the search box.</p><p>Additionally, you can click each GIF to de-/activate its animation!</h4>
 
@@ -38,16 +38,19 @@
     <div id="buttonItems" class="centerText"></div>
 
     <!-- This is the form to add a game-themed button to the array. -->
-    <form id="form">
-      <div class="row special">
-        <div class="col-md-3 special">
-          <input type="text" id="game-input" class="form-control" placeholder="Insert Cartridge...">
+    <div id="theMagic" class="container text-center">
+      <form id="form" class="form-inline">
+        <div class="form-group">
+          <input type="text" id="game-input" class="form-control" placeholder="Insert Cartridge... (e.g. Game Name)">
         </div>
-        <input id="addGameItem" type="submit" class="btn btn-success" value="Load Game!">
+        <input id="addGameItem" type="submit" class="btn btn-success " value="Load Game!">
         <!-- If there are any error messages, they should appear here -->
         <span id="entry"></span>
-      </div>
-    </form>
+      </form>
+    </div>
+    <!-- reference for properly centering forms via bootstrap: https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_inline&stacked=h -->
+
+    <!-- reference of all Bootsrap classes: https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp -->
 
     <!-- This is where the GIFs will actually be shown to the user, after they've clicked the corresponding button. -->
     <div id="ratings"></div>

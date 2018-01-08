@@ -94,10 +94,10 @@ function display() {
         "state": "still"
       });
 
-      // This holds the new div for both the image itself and the associated rating. All images should have a rating on top of them.
+      // This holds the new div for both the image itself and the associated rating. All images should be paired w/ their rating.
       var ratingAndImage = $("<div class='floatLeft'>");
 
-      $(ratingAndImage).prepend(ratingDiv, gameGIF);
+      $(ratingAndImage).prepend(gameGIF, ratingDiv);
 
       // This adds the rating and image to the page.
       $("#ratings").prepend(ratingAndImage);

@@ -28,8 +28,8 @@ $("#addGameItem").on("click", function(event) {
   var gameInput = $("#game-input").val().trim();
   var gameTerm = $(this).attr("game-name");
 
-  //  Ensures the user's button has at least 10 GIFs available from GIPHY API.
-  // If there aren't 10, an error message will be shown and no button will be created.
+  //  Ensures the user's button has at least 12 GIFs available from GIPHY API.
+  // If there aren't 12, an error message will be shown and no button will be created.
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameInput + "&limit=1&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
 
   //couldn't seem to get different gifs for each button press; tried "offset" and it WORKED! after I remembered I had two different sections w/ API calls! Now, I have varying reuslts when the same button is pressed more than once! (cool)
@@ -40,7 +40,7 @@ $("#addGameItem").on("click", function(event) {
     method: "GET"
   }).done(function(response) {
 
-    if (response.pagination.total_count >= 10) {
+    if (response.pagination.total_count >= 12) {
       videoGames.push(gameInput);
       showButtons();
     } else if (response.pagination.total_count === 0) {
@@ -70,8 +70,8 @@ function display() {
 
   var gameTerm = $(this).attr("game-name");
 
-  // The GIPHY query.  This limits to 10 results
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameTerm + "&limit=10&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
+  // The GIPHY query.  This limits to 12 results
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameTerm + "&limit=12&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
 
   $.ajax({
     url: queryURL,

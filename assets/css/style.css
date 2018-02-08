@@ -1,136 +1,87 @@
-// ref example(s) from class: GWU_Data_Bootcamp/GWAR201710FSF5-Class-Repository-FSF/06-ajax/01-Activities/14-DynamicElements
+body {
+  background-color: teal;
+  /*just in case main img doesn't load*/
 
-// This is the initial videogame title array.
-var videoGames = ["FFVII", "Chrono Trigger", "Smash Bros", "Katamari", "God of War", "Mario", "Street Fighter", "Metroid", "Earthbound", "Zelda", "Sonic the Hedgehog", "Pikmin", "Pac-Man", "Okami", "Shadow of the Colossus", "Kingdom Hearts", "Final Fantasy VI", "SNES"];
-var gameGIF = "";
+  /* background-image: url("../images/city_lights.gif"); */
 
-// This function shows all the buttons at the top of the page.
-function showButtons() {
-  $("#buttonItems").empty();
-  $("#game-input").val("");
+  background-image: url("https://github.com/0n11san/GiphyHW/blob/master/assets/images/lowkeyblinky.gif?raw=true");
 
-  for (var i = 0; i < videoGames.length; i++) {
-    var button = $("<button class='btn btn-primary'>");
-    button.addClass("game");
-    button.attr("game-name", videoGames[i]);
-    button.text(videoGames[i]);
-    $("#buttonItems").append(button);
-    $("#buttonItems").append(" ");
-  }
+  /* background-image: url("../images/motorcycle.gif");
+  background-size: cover;  */
+
+  /* background-image: url("../images/80sgrid.gif");
+  background-size: cover; */
+
+  /* Note: downloaded and linked to local copy of images as opposed to web-hosted versions. Think my site may have been blocked from referencing their image too much */
+
+
 }
 
-showButtons();
+h1 {
+  color: white;
+}
 
-// This runs when the user clicks "Load Game!, adding the seletion to the button array and updating the buttons.
-$("#addGameItem").on("click", function(event) {
-  $("#entry").empty();
-  event.preventDefault();
-  var gameInput = $("#game-input").val().trim();
-  var gameTerm = $(this).attr("game-name");
+h4 {
+  color: #479C48;
+}
 
-  //  Ensures the user's button has at least 12 GIFs available from GIPHY API.
-  // If there aren't 12, an error message will be shown and no button will be created.
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameInput + "&limit=1&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
+* {
+  font-family: 'Press Start 2P', "Futura", sans-serif;
+}
 
-  //couldn't seem to get different gifs for each button press; tried "offset" and it WORKED! after I remembered I had two different sections w/ API calls! Now, I have varying reuslts when the same button is pressed more than once! (cool)
-  // GIPHY documentation reference: https://developers.giphy.com/docs/
+.centerText {
+  text-align: center;
+}
 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).done(function(response) {
+.btn {
+  margin: 5px auto 5px auto;
+}
 
-    if (response.pagination.total_count >= 12) {
-      videoGames.push(gameInput);
-      showButtons();
-    } else if (response.pagination.total_count === 0) {
-      $("#entry").html(" Sorry, nothing in the GIPHY database.  Please try again!");
-    } else if (response.pagination.total_count === 1) {
-      $("#entry").html(" Sorry, there was only 1 result for this.  Please try again.");
-    } else {
-      $("#entry").html(" Sorry, there were only " + response.pagination.total_count + " results for this.  Please try again.");
-    }
-    $("#game-input").val("");
-  });
+/* .floatLeft {
+  float: left;
+} */
+/*
+.floatRight {
+  float: right;
+} */
 
-});
+/* .special {
+  margin: 5px auto 5px auto;
+} */
 
-$(document).on("click", ".game", display);
-
-function display() {
-
-  // Clears out error message (if one pops up)
-  $("#entry").empty();
-
-  // defines and then executes; clears old gifs when new gifs are called after button press <-----this is now working; was referencing the wrong section at first (i.e. "theMagic" id instead of the correct "ratings" id)
-  function clearGifs() {
-    $("#ratings").empty();
+#container {
+  padding: 20px;
   }
-  clearGifs();
 
-  var gameTerm = $(this).attr("game-name");
+#entry {
+  color: white;
+  background: red;
+  
+}
 
-  // The GIPHY query.  This limits to 12 results
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameTerm + "&limit=12&api_key=XNXXBU3B0vxwgDFnrUVQrnh1U12f5CSP" + "&offset=" + Math.floor((Math.random() * 100) + 1);
+#ratings {
+  /* color: #479C48; */
+  color: #B40610;
 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).done(function(response) {
+  /* https://css-tricks.com/adding-stroke-to-web-text/ */
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: white;
 
-    // This runs 10 times (limit is 10 per above query) to show all the GIPHY pictures from the website's API response.
-    for (var i = 0; i < response.data.length; i++) {
+display: grid;
+grid-gap: 8px;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: auto auto auto;
+justify-content: center;
+align-items: center;
+}
 
-      // Gets the animated gif URL
-      var active = response.data[i].images.fixed_width.url;
-      // Gets the still gif URL
-      var still = response.data[i].images.fixed_width_still.url;
-      var rating = "Rating: " + (response.data[i].rating).toUpperCase();
+#ratingDiv {
+  text-align: "center";
+  font-size: "20px";
+  width: "200px";
+/*   display: "block"; */
+}
 
-      // Creates the new img item
-      var gameGIF = $("<img>");
-
-      // Changes the text color of ratings to green so can be seen against background more easily
-      $("#ratings");
-
-      // This creates a new div for the rating so that it maintains the gifs size
-      var ratingDiv = $("<div id='ratingDiv'>" + rating + "</div>");
-
-      gameGIF.attr({
-        "active": active,
-        "still": still,
-        "src": still,
-        "state": "still"
-      });
-
-      // This holds the new div for both the image itself and the associated rating. All images should be paired w/ their rating.
-      var ratingAndImage = $("<div class='floatLeft'>");
-
-      $(ratingAndImage).prepend(gameGIF, ratingDiv);
-
-      // This adds the rating and image to the page.
-      $("#ratings").prepend(ratingAndImage);
-
-      // When the user clicks on a GIF, this will either start or stop the animation of said GIF.
-      $(gameGIF).on("click", function(event) {
-
-        // Clears out any error messages, concerning query response i.e. number of results (if there are too few)
-        $("#entry").empty();
-
-        var state = $(this).attr("state");
-        var source = $(this).attr("src");
-
-        if (state === "still") {
-          $(this).attr("src", $(this).attr("active"));
-          $(this).attr("state", "active");
-        } else {
-          $(this).attr("src", $(this).attr("still"));
-          $(this).attr("state", "still");
-        }
-      });
-
-    }
-
-  });
-
+#theMagic {
+  margin-bottom: 20px;
 }
